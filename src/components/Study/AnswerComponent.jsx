@@ -16,7 +16,11 @@ const AnswerComponent = ({ answerObj, correctAnswer }) => {
                             <label class="custom-control-label" for="customRadio1">
                                 {answerObj?.answer}
                             </label>
+<<<<<<< HEAD
                             
+=======
+                            {/* <input id="icon" style="text-indent:17px;" type="text" placeholder="Username" /> */}
+>>>>>>> 0993144abb3cd69e38f08975e8618fdc5e91ee90
                             <input data-toggle="collapse" data-target="#collapseOne" type="checkbox" id="customRadio1" name="customRadio" class="custom-control-input accordionradio" />
                         </div>
                     </div>

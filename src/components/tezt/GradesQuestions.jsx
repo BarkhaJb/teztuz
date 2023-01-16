@@ -12,9 +12,13 @@ const GradesQuestion = ({ setScore, correct, setCorrect }) => {
     const [selectedField, setSelectedField] = useState({});
 
     useEffect(() => {
+<<<<<<< HEAD
         
         setQuestionField([]);
         debugger
+=======
+        setQuestionField([]);
+>>>>>>> 0993144abb3cd69e38f08975e8618fdc5e91ee90
         for (var i = 0; i < location.state.questions.length; i++) {
             const question = {
                 question: location.state.questions[i].question,

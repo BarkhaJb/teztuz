@@ -39,7 +39,6 @@ const CreateStudySets = React.lazy(() => import('../screens/CreateStudySets'));
 const FolderMain = React.lazy(() => import('../screens/Folders'));
 const SignIn = React.lazy(() => import('../screens/SignIn'));
 const Signup = React.lazy(() => import('../screens/SignUp'));
-const ViewAnswer = React.lazy(() => import('../screens/ViewAnswer'));
 
 function ApplicationRoutes() {
     const navigate = useNavigate();
@@ -111,6 +110,7 @@ function ApplicationRoutes() {
                     <Route path="/edit-studySet/:id" element={<CreateStudySets />} />
                     <Route path="/study-session/:studySetId" element={<StudySession />} />
                     <Route path="/study-Admin-session" element={<StudyAdminSession />} />
+                   
                     <Route path="/invite/:studySetId" element={<InviteFriend />} />
                     <Route path="/start-tezt/:studySetId" element={<StartTezt />} />
                     <Route path="/start-admin-tezt/:studySetId" element={<StartAdminTezt />} />

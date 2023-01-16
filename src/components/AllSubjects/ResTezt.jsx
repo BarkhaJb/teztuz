@@ -42,7 +42,11 @@ const ResTezt = ({ adminTezt }) => {
                                                 <p>
                                                     <img src="../assets/22.png" alt="puzle" className="rounded-pill p-3" width="100%" />
                                                 </p>
+<<<<<<< HEAD
                                                 <p className="tezt-center">{val?.Subject}</p>
+=======
+                                                <p className="tezt-center">{val?.Topic}</p>
+>>>>>>> 0993144abb3cd69e38f08975e8618fdc5e91ee90
                                             </div>
                                         </Link>
                                     </Col>

@@ -36,6 +36,14 @@ const StudyAdminMode = ({ teztData }) => {
     //         }
     //     });
     // }, []);
+    useEffect(async () => {
+        const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/questions/studySets/` + studySetId);
+        res.data.map((q) => {
+            if (q.bookmark == true) {
+                sethasBookMarked(true);
+            }
+        });
+    }, []);
 
     const SwitchCase = () => {
         switch (studyMode) {
@@ -77,6 +85,7 @@ const StudyAdminMode = ({ teztData }) => {
         const upDatedStudySet = {};
 
         //await axios.put(`${process.env.REACT_APP_BASE_URL}/api/studySets/study/${studySetId}`, upDatedStudySet);
+        await axios.put(`${process.env.REACT_APP_BASE_URL}/api/studySets/study/${studySetId}`, upDatedStudySet);
     };
 
     return (

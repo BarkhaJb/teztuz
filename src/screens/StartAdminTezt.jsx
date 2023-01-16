@@ -11,6 +11,8 @@ import { getLoggedUser } from '../helpers/utils';
 import axios from 'axios';
 import GeneralAdmin from '../components/Study/GeneralAdmin';
 
+import FlashAdmin from '../components/Study/FlashAdmin'; 
+import StreakAdmin from '../components/Study/Streakdmin';  
 const StartAdminTezt = () => {
     const navigate = useNavigate();
     const [toggle, setToggle] = React.useState(false);
@@ -80,8 +82,10 @@ const StartAdminTezt = () => {
                         </Button>
                     </p>
                     <div>
-                        {location?.state?.mode === 'Flash' && <Flash />}
-                        {location?.state?.mode === 'Streak' && <Streak />}
+                 
+                    {(location?.state?.mode === 'Flash' || location?.state?.mode === 'Improve') && <FlashAdmin teztData={teztData} />}
+                        {(location?.state?.mode === 'Streak'  || location?.state?.mode === 'Improve') && <StreakAdmin  teztData={teztData} />}
+
                         {(location?.state?.mode === 'General' || location?.state?.mode === 'Improve') && <GeneralAdmin teztData={teztData} />}
 
                         {/* {(location?.state?.mode === 'Flash' || location?.state?.mode === 'Improve') && <Flash />}

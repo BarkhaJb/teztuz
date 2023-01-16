@@ -204,6 +204,7 @@ const GeneralAdmin = ({ teztData }) => {
             setTeztStarted(true);
         }
         // console.log(filteredQuestions, 'scsc');
+      
     };
 
     useEffect(() => {
@@ -233,6 +234,28 @@ const GeneralAdmin = ({ teztData }) => {
         //         uploadProgress(newProgress);
         //     }
         // }
+        const uploadProgress = async (newProgress) => {
+            try {
+                setMyProgress(newProgress);
+                await axios.put(`${process.env.REACT_APP_BASE_URL}/api/userStudySetRecord`, { userId: userId, studySetId: studySetId, progress: newProgress });
+                await axios.post(`${process.env.REACT_APP_BASE_URL}/api/studySets/shareProgress`, {
+                    sender: user.username,
+                    senderemail: user.email,
+                    receivers: testUsers.filter((u) => u !== user.username),
+                    progress: newProgress,
+                    studySetId
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        if (noOfQuestions > 0) {
+            if (currentQuestionIndex <= noOfQuestions) {
+                const newProgress = Math.round((currentQuestionIndex * 100) / noOfQuestions);
+                uploadProgress(newProgress);
+            }
+        }
         const checkQuestionsBookmarked = () => {
             const currentQuestion = questions[currentQuestionIndex - 1] || [];
             if (currentQuestion?.bookmark == true) {
@@ -269,6 +292,7 @@ const GeneralAdmin = ({ teztData }) => {
         }, 10);
         return () => clearInterval(interval);
     },[]);
+   
 
     const saveAnswers = (answer) => {
         setUserAnswers([...userAnswers.slice(0, currentQuestionIndex - 1), answer, ...userAnswers.slice(currentQuestionIndex, userAnswers.length)]);
@@ -306,6 +330,7 @@ const GeneralAdmin = ({ teztData }) => {
             progress: progress
         };
         navigate('/tezt-Answer', { state: values });
+        navigate('/tezt-summary', { state: values });
     };
     const handleSubmit = (values) => {
         alert(JSON.stringify(values), 'data');
@@ -326,7 +351,7 @@ const GeneralAdmin = ({ teztData }) => {
         return () => {
             document.removeEventListener('keydown', keyDownHandler);
         };
-    },[]);
+    });
     const toogleBookmark = async () => {
         try {
             const currentQuestion = questions[currentQuestionIndex - 1] || {};
