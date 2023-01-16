@@ -1,0 +1,27 @@
+.navbar-nav.navbar-nav-scroll a.nav-link:hover {
+    color: #fff;
+}
+
+.navbar-nav.navbar-nav-scroll a.nav-link {
+    font-weight: 700 !important;
+    padding: 0 10px !important;
+    margin: 0 10px !important;
+    display: inline-block;
+    color: #000;
+    text-transform: uppercase;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+* {
+    font-family: 'Raleway' !important;
+}
+b,
+strong {
+    font-weight: 900 !important;
+}

@@ -1,0 +1,23 @@
+.rbc-today {
+    background-color: #234b71 !important;
+}
+.rc-anchor-logo-portrait {
+    display: none !important;
+}
+.captch .rc-anchor-light {
+    background-color: none !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.captcha {
+    background-color: none !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding-left: 5px;
+}
+.questionblock .ck-editor__main figcaption, .ck.ck-balloon-panel.ck-balloon-panel_visible {
+    display: none !important;
+}
+
